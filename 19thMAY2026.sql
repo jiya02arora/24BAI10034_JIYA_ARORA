@@ -8,7 +8,7 @@ CREATE TABLE Worker (
 	DEPARTMENT CHAR(25)
 );
 INSERT INTO Worker (WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES 
-        (101, 'Jiya', 'Arora', 100000, '14-02-20 09.00.00', 'HR'),
+        (101, 'Jiya', 'Arora', 1000000, '14-02-20 09.00.00', 'HR'),
 		(102, 'Niharika', 'Sharma', 80000, '14-06-11 09.00.00', 'Admin'),
 		(103, 'Vidhi', 'Singh', 300000, '14-02-20 09.00.00', 'HR'),
 		(104, 'Amit', 'Singla', 500000, '14-02-20 09.00.00', 'Admin'),
@@ -52,9 +52,7 @@ SELECT salary FROM worker;
 
 
 select * from worker;
-
 select worker_id as RollNumber from worker;
-
 select distinct(department) from worker;
 
 SELECT worker_id, first_name,
