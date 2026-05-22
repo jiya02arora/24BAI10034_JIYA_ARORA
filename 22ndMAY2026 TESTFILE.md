@@ -214,7 +214,5 @@ INSERT INTO Title
 
 >> from worker W2
 
->>  where W1.department = W2.department
-
-);
+>>  where W1.department = W2.department );
 
