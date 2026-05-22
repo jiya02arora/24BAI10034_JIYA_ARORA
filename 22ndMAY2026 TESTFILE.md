@@ -210,11 +210,11 @@ INSERT INTO Title
 
 >> select first\_name, department, salary from worker W1 where W1.salary = (
 
-&#x20;   select max(W2.salary)
+>> select max(W2.salary)
 
-&#x20;   from worker W2
+>> from worker W2
 
-&#x20;   where W1.department = W2.department
+>>  where W1.department = W2.department
 
 );
 
