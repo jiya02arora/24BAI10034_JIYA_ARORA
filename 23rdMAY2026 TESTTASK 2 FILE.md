@@ -176,7 +176,7 @@ Assignments (A)	Links employees to projects	assignment\_id (PK), employee\_id (F
 
 List the Employee Name, their Department Name, and the Location Name for all employees.
 
->> SELECT E.employee\_name, D.dept\_name, D.location\_id FROM Employees E
+ SELECT E.employee\_name, D.dept\_name, D.location\_id FROM Employees E
 
 JOIN Departments D ON E.dept\_id = D.dept\_id;
 
@@ -186,7 +186,7 @@ JOIN Departments D ON E.dept\_id = D.dept\_id;
 
 Retrieve the Project Name, Client Name, and the Total Hours Worked on that project, but only for projects managed by the 'Consulting' department.
 
->>**SELECT P.project\_name, P.client\_name, SUM(A.hours\_worked)**
+**SELECT P.project\_name, P.client\_name, SUM(A.hours\_worked)**
 
 **FROM Projects P**
 
@@ -210,7 +210,7 @@ Find the names of Employees who have worked on a project with Client Name 'Globa
 
 
 
->>**SELECT E.employee\_name, P.project\_name**
+**SELECT E.employee\_name, P.project\_name**
 
 **FROM Employees E**
 
@@ -230,7 +230,7 @@ Find the names of Employees who have worked on a project with Client Name 'Globa
 
 List all Departments that have no Employees currently assigned to them.
 
->>**SELECT D.dept\_name**
+**SELECT D.dept\_name**
 
 **FROM Departments D**
 
@@ -246,7 +246,7 @@ List all Departments that have no Employees currently assigned to them.
 
 Show the Manager Name, the Department Name they manage, and the total number of direct reports they have.
 
->>**SELECT M.employee\_name AS Manager\_Name,**
+**SELECT M.employee\_name AS Manager\_Name,**
 
 **D.dept\_name,**
 
@@ -272,9 +272,7 @@ Aggregation and Grouping
 
 Calculate the Average Hours Worked per Employee across all projects. List the Employee Name and the average hours.
 
-
-
->>**SELECT E.employee\_name, AVG(A.hours\_worked)**
+**SELECT E.employee\_name, AVG(A.hours\_worked)**
 
 **FROM Employees E**
 
@@ -289,8 +287,6 @@ Calculate the Average Hours Worked per Employee across all projects. List the Em
 7\.
 
 Find the Department Name(s) that have an average salary above the company-wide average salary.
-
-
 
 **SELECT D.dept\_name**
 
@@ -315,8 +311,6 @@ Find the Department Name(s) that have an average salary above the company-wide a
 8\.
 
 Identify the Client Name(s) whose projects have a total combined hours worked exceeding 500 hours.
-
-
 
 **SELECT P.client\_name, SUM(A.hours\_worked)**
 
@@ -344,9 +338,7 @@ For each Location, find the Department Name with the highest count of employees.
 
 Calculate the total number of employees assigned to each Project, but only include projects that have more than 5 employees assigned.
 
-
-
->>**SELECT P.project\_name, COUNT(A.employee\_id)**
+**SELECT P.project\_name, COUNT(A.employee\_id)**
 
 **FROM Projects P**
 
@@ -378,9 +370,7 @@ Retrieve the Department Name(s) that have employees assigned to more than one pr
 
 Write a query to list the Employee Name and Project Name for any employee who has worked less than 10 hours on a project.
 
-
-
->>**SELECT E.employee\_name, P.project\_name**
+**SELECT E.employee\_name, P.project\_name**
 
 **FROM Employees E**
 
@@ -400,7 +390,7 @@ Write a query to list the Employee Name and Project Name for any employee who ha
 
 Find the Project Name(s) that have no assigned employees.
 
->>**SELECT P.project\_name**
+**SELECT P.project\_name**
 
 **FROM Projects P**
 
@@ -426,9 +416,7 @@ Dates and MySQL Specific Functions
 
 Assuming the Assignments table has a start\_date column, find the Employee Name and their oldest project start date.
 
-
-
-**>>SELECT E.employee\_name, MIN(A.start\_date)**
+**SELECT E.employee\_name, MIN(A.start\_date)**
 
 **FROM Employees E**
 
@@ -446,9 +434,7 @@ Assuming the Assignments table has a start\_date column, find the Employee Name 
 
 Write a MySQL query using the DATE\_FORMAT function to list all projects that were active in the year 2023.
 
-
-
->>**SELECT project\_name**
+**SELECT project\_name**
 
 **FROM Projects**
 
@@ -460,7 +446,7 @@ Write a MySQL query using the DATE\_FORMAT function to list all projects that we
 
 Use the MySQL-specific IFNULL function to list all Employee Names. If an employee has no manager, display "CEO" instead of NULL.
 
->> S**ELECT E.employee\_name,**
+**SELECT E.employee\_name,**
 
 **IFNULL(M.employee\_name, 'CEO') AS Manager\_Name**
 
@@ -476,9 +462,7 @@ Use the MySQL-specific IFNULL function to list all Employee Names. If an employe
 
 Find the top 3 Departments based on the total hours worked by all their employees across all projects.
 
-
-
->>**SELECT D.dept\_name, SUM(A.hours\_worked)**
+**SELECT D.dept\_name, SUM(A.hours\_worked)**
 
 **FROM Departments D**
 
@@ -502,7 +486,7 @@ Find the top 3 Departments based on the total hours worked by all their employee
 
 Display the Project Name and a status ("High Activity" if total hours > 300, "Normal" otherwise) using the CASE statement.
 
->>**SELECT P.project\_name,**
+**SELECT P.project\_name,**
 
 **CASE**
 
