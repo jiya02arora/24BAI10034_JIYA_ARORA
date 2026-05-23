@@ -204,7 +204,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT name FROM Employees WHERE dept\_id = ( SELECT dept\_id FROM Employees WHERE name = 'David');**
+>**SELECT name FROM Employees WHERE dept\_id = ( SELECT dept\_id FROM Employees WHERE name = 'David');**
 
 
 
@@ -213,7 +213,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 \[MULTI-TABLE JOIN] Show all department names even if they have no employees assigned to them.
 
 
-**> SELECT D.dept\_name, E.name FROM Departments D LEFT JOIN Employees E ON D.dept\_id = E.dept\_id;**
+>**SELECT D.dept\_name, E.name FROM Departments D LEFT JOIN Employees E ON D.dept\_id = E.dept\_id;**
 
 
 
