@@ -156,7 +156,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT E.name AS Employee, M.name AS Manager FROM Employees E LEFT JOIN Employees M ON E.manager\_id = M.emp\_id;**
+> **SELECT E.name AS Employee, M.name AS Manager FROM Employees E LEFT JOIN Employees M ON E.manager\_id = M.emp\_id;**
 
 
 
@@ -166,7 +166,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT name, salary FROM Employees ORDER BY salary DESC LIMIT 3;**
+> **SELECT name, salary FROM Employees ORDER BY salary DESC LIMIT 3;**
 
 
 
@@ -176,9 +176,9 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT E.name FROM Employees E JOIN Jobs J ON E.job\_id = J.job\_id JOIN Departments D ON E.dept\_id = D.dept\_id**
+> **SELECT E.name FROM Employees E JOIN Jobs J ON E.job\_id = J.job\_id JOIN Departments D ON E.dept\_id = D.dept\_id**
 
-**WHERE J.job\_title = 'Developer' AND D.location = 'San Francisco';**
+> **WHERE J.job\_title = 'Developer' AND D.location = 'San Francisco';**
 
 
 
@@ -186,11 +186,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 \[GROUP BY] Find the number of employees hired each year.
 
-
-
-**>**
-
-
+>
 
 9\.
 
@@ -198,7 +194,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**> SELECT J.job\_title FROM Employees E JOIN Jobs J ON E.job\_id = J.job\_id GROUP BY J.job\_title HAVING MAX(E.salary) < 100000;**
+> **SELECT J.job\_title FROM Employees E JOIN Jobs J ON E.job\_id = J.job\_id GROUP BY J.job\_title HAVING MAX(E.salary) < 100000;**
 
 
 
@@ -243,7 +239,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT J.job\_title, E.salary FROM Employees E JOIN Jobs J ON E.job\_id = J.job\_id WHERE E.emp\_id = 504;**
+>**SELECT J.job\_title, E.salary FROM Employees E JOIN Jobs J ON E.job\_id = J.job\_id WHERE E.emp\_id = 504;**
 
 
 
@@ -253,7 +249,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT manager\_id, MIN(salary) FROM Employees GROUP BY manager\_id;**
+>**SELECT manager\_id, MIN(salary) FROM Employees GROUP BY manager\_id;**
 
 
 
@@ -273,7 +269,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**> SELECT MAX(salary) - MIN(salary) FROM Employees;**
+>**SELECT MAX(salary) - MIN(salary) FROM Employees;**
 
 
 
@@ -301,13 +297,13 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**> SELECT name, salary FROM Employees WHERE salary = (**
+>**SELECT name, salary FROM Employees WHERE salary = (**
 
-**>   SELECT DISTINCT salary FROM Employees**
+>**SELECT DISTINCT salary FROM Employees**
 
-**>   ORDER BY salary DESC LIMIT 1 OFFSET 2**
+>**ORDER BY salary DESC LIMIT 1 OFFSET 2**
 
-**>);**
+>**);**
 
 
 21\.
@@ -326,7 +322,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT E.name FROM Employees E JOIN Departments D ON E.dept\_id = D.dept\_id WHERE D.dept\_name = 'Finance' AND E.name LIKE '%i%';**
+>**SELECT E.name FROM Employees E JOIN Departments D ON E.dept\_id = D.dept\_id WHERE D.dept\_name = 'Finance' AND E.name LIKE '%i%';**
 
 
 
@@ -336,7 +332,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT D.dept\_name, SUM(E.salary \* 0.10) AS total\_bonus FROM Employees E JOIN Departments D ON E.dept\_id = D.dept\_id GROUP BY D.dept\_name;**
+>**SELECT D.dept\_name, SUM(E.salary \* 0.10) AS total\_bonus FROM Employees E JOIN Departments D ON E.dept\_id = D.dept\_id GROUP BY D.dept\_name;**
 
 
 
@@ -346,7 +342,7 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 
 
 
-**>SELECT D.dept\_name FROM Employees E JOIN Departments D ON E.dept\_id = D.dept\_id GROUP BY D.dept\_name ORDER BY SUM(E.salary) DESC LIMIT 1;**
+>**SELECT D.dept\_name FROM Employees E JOIN Departments D ON E.dept\_id = D.dept\_id GROUP BY D.dept\_name ORDER BY SUM(E.salary) DESC LIMIT 1;**
 
 
 
@@ -355,5 +351,5 @@ INSERT INTO Employees (emp\_id, name, manager\_id, dept\_id, job\_id, salary, hi
 \[JOINS] Find all employees who report to 'Charlie'.
 
 
-**>SELECT E.name FROM Employees E JOIN Employees M ON E.manager\_id = M.emp\_id WHERE M.name = 'Charlie';**
+> **SELECT E.name FROM Employees E JOIN Employees M ON E.manager\_id = M.emp\_id WHERE M.name = 'Charlie';**
 
