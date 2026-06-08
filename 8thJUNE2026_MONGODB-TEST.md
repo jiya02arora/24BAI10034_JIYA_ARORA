@@ -82,13 +82,13 @@ db.products.insertMany(\[
 
 
 
->**db.students.find({**
+**db.students.find({**
 
->    **dept: "CS",**
+&#x20;   **dept: "CS",**
 
->    **marks: { $gt: 80 }**
+&#x20;   **marks: { $gt: 80 }**
 
->**})**
+**})**
 
 
 
@@ -96,17 +96,17 @@ db.products.insertMany(\[
 
 
 
->**db.students.find({**
+**db.students.find({**
 
->    **marks: {**
+&#x20;   **marks: {**
 
->       **$gte: 60,**
+&#x20;      **$gte: 60,**
 
->        **$lte: 85**
+&#x20;       **$lte: 85**
 
->    **}**
+&#x20;   **}**
 
->**})**
+**})**
 
 
 
@@ -114,15 +114,15 @@ db.products.insertMany(\[
 
 
 
->**db.students.find({**
+**db.students.find({**
 
->    **dept: {**
+&#x20;   **dept: {**
 
->        **$in: \["IT", "ECE"]**
+&#x20;       **$in: \["IT", "ECE"]**
 
->    **}**
+&#x20;   **}**
 
->**})**
+**})**
 
 
 
@@ -130,29 +130,29 @@ db.products.insertMany(\[
 
 
 
->**db.students.find(**
+**db.students.find(**
 
->    **{**
+&#x20;   **{**
 
->        **dept: {**
+&#x20;       **dept: {**
 
->            **$nin: \["CS"]**
+&#x20;           **$nin: \["CS"]**
 
->        **}**
+&#x20;       **}**
 
->    **},**
+&#x20;   **},**
 
->    **{**
+&#x20;   **{**
 
->        **\_id: 0,**
+&#x20;       **\_id: 0,**
 
->        **name: 1,**
+&#x20;       **name: 1,**
 
->        **dept: 1**
+&#x20;       **dept: 1**
 
->    **}**
+&#x20;   **}**
 
->**)**
+**)**
 
 
 
@@ -160,11 +160,11 @@ db.products.insertMany(\[
 
 
 
->**db.students.find({**
+**db.students.find({**
 
->    **"address.city": "Chennai"**
+&#x20;   **"address.city": "Chennai"**
 
->**})**
+**})**
 
 
 
@@ -172,29 +172,29 @@ db.products.insertMany(\[
 
 
 
->**db.products.aggregate(\[**
+**db.products.aggregate(\[**
 
->  **{**
+&#x20; **{**
 
->    **$group: {**
+&#x20;   **$group: {**
 
->      **\_id: "$category",**
+&#x20;     **\_id: "$category",**
 
->      **totalRevenue: {**
+&#x20;     **totalRevenue: {**
 
->        **$sum: {**
+&#x20;       **$sum: {**
 
->          **$multiply: \["$price", "$sold"]**
+&#x20;         **$multiply: \["$price", "$sold"]**
 
->        **}**
+&#x20;       **}**
 
->      **}**
+&#x20;     **}**
 
->    **}**
+&#x20;   **}**
 
->  **}**
+&#x20; **}**
 
->**])**
+**])**
 
 
 
@@ -202,72 +202,72 @@ db.products.insertMany(\[
 
 
 
->**db.students.aggregate(\[**
+**db.students.aggregate(\[**
 
->  **{**
+&#x20; **{**
 
->    **$group: {**
+&#x20;   **$group: {**
 
->      **\_id: "$dept",**
+&#x20;     **\_id: "$dept",**
 
->      **totalStudents: { $sum: 1 },**
+&#x20;     **totalStudents: { $sum: 1 },**
 
->      **averageMarks: { $avg: "$marks" }**
+&#x20;     **averageMarks: { $avg: "$marks" }**
 
->    **}**
+&#x20;   **}**
 
->  **}**
+&#x20; **}**
 
->**])**
+**])**
 
 
 
 8\. Remove the 'scholarship' field from all students using $unset.
 
 
->**db.students.updateMany(**
+**db.students.updateMany(**
 
->  **{},**
+&#x20; **{},**
 
->  **{**
+&#x20; **{**
 
->    **$unset: { scholarship: "" }**
+&#x20;   **$unset: { scholarship: "" }**
 
->  **}**
+&#x20; **}**
 
->**)**
+**)**
 
 9. Add a new field 'scholarship' with value false to all CS students using $set.
 
 
 
->**db.students.updateMany(**
+**db.students.updateMany(**
 
->  **{ dept: "CS" },**
+&#x20; **{ dept: "CS" },**
 
->  **{**
+&#x20; **{**
 
->    **$set: { scholarship: false }**
+&#x20;   **$set: { scholarship: false }**
 
->  **}**
+&#x20; **}**
 
->**)**
+**)**
 
 
 
 10\. Increment marks of student with \_id:6 by 10 using $inc.
 
->**db.students.updateOne(**
+**db.students.updateOne(**
 
->  **{ \_id: 6 },**
+&#x20; **{ \_id: 6 },**
 
->  **{**
+&#x20; **{**
 
->    **$inc: { marks: 10 }**
+&#x20;   **$inc: { marks: 10 }**
 
->  **}**
+&#x20; **}**
 
->**)**
+**)**
 
 
 
@@ -275,13 +275,13 @@ db.products.insertMany(\[
 
 
 
->**db.students.find()**
+**db.students.find()**
 
->**.sort({ marks: -1 })**
+**.sort({ marks: -1 })**
 
->**.skip(2)**
+**.skip(2)**
 
->**.limit(2)**
+**.limit(2)**
 
 
 
@@ -289,13 +289,13 @@ db.products.insertMany(\[
 
 
 
->**db.employees.find({**
+**db.employees.find({**
 
->  **salary: { $gt: 50000 },**
+&#x20; **salary: { $gt: 50000 },**
 
->  **experience: { $gt: 5 }**
+&#x20; **experience: { $gt: 5 }**
 
->**})**
+**})**
 
 
 
@@ -303,23 +303,23 @@ db.products.insertMany(\[
 
 
 
->**db.employees.aggregate(\[**
+**db.employees.aggregate(\[**
 
->  **{**
+&#x20; **{**
 
->    **$match: {**
+&#x20;   **$match: {**
 
->      **$expr: {**
+&#x20;     **$expr: {**
 
->        **$gt: \[{ $size: "$skills" }, 2]**
+&#x20;       **$gt: \[{ $size: "$skills" }, 2]**
 
->      **}**
+&#x20;     **}**
 
->    **}**
+&#x20;   **}**
 
->  **}**
+&#x20; **}**
 
->**])**
+**])**
 
 
 
@@ -327,31 +327,31 @@ db.products.insertMany(\[
 
 
 
->**db.employees.aggregate(\[**
+**db.employees.aggregate(\[**
 
->  **{**
+&#x20; **{**
 
->    **$group: {**
+&#x20;   **$group: {**
 
->      **\_id: "$department",**
+&#x20;     **\_id: "$department",**
 
->      **avgSalary: { $avg: "$salary" }**
+&#x20;     **avgSalary: { $avg: "$salary" }**
 
->    **}**
+&#x20;   **}**
 
->  **},**
+&#x20; **},**
 
->  **{**
+&#x20; **{**
 
->    **$match: {**
+&#x20;   **$match: {**
 
->      **avgSalary: { $gt: 50000 }**
+&#x20;     **avgSalary: { $gt: 50000 }**
 
->    **}**
+&#x20;   **}**
 
->  **}**
+&#x20; **}**
 
->**])**
+**])**
 
 
 
@@ -359,21 +359,21 @@ db.products.insertMany(\[
 
 
 
->**db.employees.aggregate(\[**
+**db.employees.aggregate(\[**
 
->  **{**
+&#x20; **{**
 
->    **$group: {**
+&#x20;   **$group: {**
 
->      **\_id: "$department",**
+&#x20;     **\_id: "$department",**
 
->      **minSalary: { $min: "$salary" }**
+&#x20;     **minSalary: { $min: "$salary" }**
 
->    **}**
+&#x20;   **}**
 
->  **}**
+&#x20; **}**
 
->**])**
+**])**
 
 
 
@@ -381,21 +381,21 @@ db.products.insertMany(\[
 
 
 
->**db.employees.updateMany(**
+**db.employees.updateMany(**
 
->  **{},**
+&#x20; **{},**
 
->  **{**
+&#x20; **{**
 
->    **$rename: {**
+&#x20;   **$rename: {**
 
->      **"city": "location"**
+&#x20;     **"city": "location"**
 
->    **}**
+&#x20;   **}**
 
->  **}**
+&#x20; **}**
 
->**)**
+**)**
 
 
 
@@ -403,15 +403,15 @@ db.products.insertMany(\[
 
 
 
->**db.products.find({**
+**db.products.find({**
 
->  **stock: {**
+&#x20; **stock: {**
 
->    **$type: "number"**
+&#x20;   **$type: "number"**
 
->  **}**
+&#x20; **}**
 
->**})**
+**})**
 
 
 
@@ -419,17 +419,17 @@ db.products.insertMany(\[
 
 
 
->**db.students.updateMany(**
+**db.students.updateMany(**
 
->  **{ active: false },**
+&#x20; **{ active: false },**
 
->  **{**
+&#x20; **{**
 
->    **$set: { active: true }**
+&#x20;   **$set: { active: true }**
 
->  **}**
+&#x20; **}**
 
->**)**
+**)**
 
 
 
