@@ -572,25 +572,11 @@ db.employees.updateOne(
 
 db.employees.updateMany(
 
-&#x20;   { department: "IT" },
+&#x20;   db.employees.updateMany(
+&#x20;    { department: "IT" },
+&#x20;    {
+&#x20;        $mul: { salary: 1.1 }
+&#x20;    }
+&#x20;)
 
-&#x20;   \[
-
-&#x20;       {
-
-&#x20;           $set: {
-
-&#x20;               salary: {
-
-&#x20;                   $multiply: \["$salary", 1.1]
-
-&#x20;               }
-
-&#x20;           }
-
-&#x20;       }
-
-&#x20;   ]
-
-)
 
